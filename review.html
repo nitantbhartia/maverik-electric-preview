@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" data-lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Review card — Maverik Electric Inc</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .card {
+      max-width: 520px;
+      margin: 1.5rem auto 3rem;
+      background: #fffdf6;
+      border: 8px solid #4a2e18;
+      padding: 1.4rem 1.5rem 1.8rem;
+      box-shadow: 0 10px 0 #4a2e18;
+    }
+    .card img { width: 220px; height: 220px; display: block; margin: 0.8rem auto; background: #fff; }
+    .card .actions { display: flex; gap: 0.6rem; flex-wrap: wrap; margin-top: 1rem; }
+    .card .actions button, .card .actions a {
+      background: #4a2e18; color: #f3ead4; text-decoration: none; border: 0;
+      padding: 0.55rem 0.8rem; cursor: pointer; font-weight: 600;
+    }
+    .fine { font-size: 0.82rem; color: #4a4338; }
+    @media print {
+      .shop-bar, .card .actions, .lang { display: none !important; }
+      .card { box-shadow: none; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="shop-bar">
+    <div class="mark">Maverik Electric Inc.
+      <small data-en="Printable review card" data-es="Tarjeta de reseña para imprimir">Printable review card</small>
+    </div>
+    <nav class="lang" aria-label="Language">
+      <button type="button" data-set="en" aria-pressed="true">EN</button>
+      <button type="button" data-set="es" aria-pressed="false">ES</button>
+    </nav>
+  </header>
+  <article class="card">
+    <p class="tag" data-en="Leave a review if the job was right" data-es="Deje una reseña si el trabajo quedó bien">Leave a review if the job was right</p>
+    <h1>Maverik Electric Inc.</h1>
+    <p data-en="Matt Meyer &amp; Meghan Meyer · License 1070787 · El Cajon" data-es="Matt Meyer y Meghan Meyer · Licencia 1070787 · El Cajon">Matt Meyer &amp; Meghan Meyer · License 1070787 · El Cajon</p>
+    <p><a class="plain" href="tel:+16197843914">(619) 784-3914</a> · 11505 Oralane Drive, El Cajon, CA 92020</p>
+    <img src="review-qr.svg" width="220" height="220" alt="QR code to Maverik Electric Inc. Google Maps listing published on maverikelectricsd.com">
+    <p data-en="This QR opens the Google Maps listing Maverik published on maverikelectricsd.com. From there you can leave a Google review if you choose. We did not invent a write-a-review short link." data-es="Este QR abre el listado de Google Maps que Maverik publicó en maverikelectricsd.com. Desde ahí puede dejar una reseña de Google si lo desea. No inventamos un enlace corto de reseña.">This QR opens the Google Maps listing Maverik published on maverikelectricsd.com. From there you can leave a Google review if you choose. We did not invent a write-a-review short link.</p>
+    <p class="fine" data-en="Their site also links Yelp (maverik-electric-el-cajon), Facebook, and Instagram. Reviews printed on the shop page are the ones they published themselves." data-es="Su sitio también enlaza Yelp (maverik-electric-el-cajon), Facebook e Instagram. Las reseñas en la página del taller son las que ellos mismos publicaron.">Their site also links Yelp (maverik-electric-el-cajon), Facebook, and Instagram. Reviews printed on the shop page are the ones they published themselves.</p>
+    <div class="actions">
+      <button type="button" id="print-card" data-en="Print this card" data-es="Imprimir esta tarjeta">Print this card</button>
+      <a href="index.html" data-en="Back to the desks" data-es="Volver a los escritorios">Back to the desks</a>
+    </div>
+  </article>
+  <script src="script.js"></script>
+</body>
+</html>
