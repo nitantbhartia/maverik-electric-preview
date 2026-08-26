@@ -1,19 +1,16 @@
-/* Maverik Electric — two-desk shop office. Matt field / Meghan desk. Not a panel catalog. */
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,600;1,6..72,400&display=swap");
+/* Maverik Electric — mailed two-desk office. Cork vs blotter. Not a form kit. */
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,650;1,6..72,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
 
 :root {
-  --ink: #1b1712;
-  --paper: #f3ead4;
-  --kraft: #d7c19a;
-  --oak: #7a4e2a;
-  --oak-dark: #4a2e18;
-  --aisle: #b9a57a;
-  --matt-blotter: #3e4a36;
-  --meghan-blotter: #2f3f48;
-  --brass: #b8923a;
-  --pin: #8b2e2e;
-  --tape: #e6d27a;
-  --line: #c9b48a;
+  --ink: #241c14;
+  --paper: #f4ead2;
+  --oak: #6e4526;
+  --oak-dark: #3d2616;
+  --brass: #c4a04a;
+  --pin: #8a2a24;
+  --tape: #ead56a;
+  --matt: #3a4634;
+  --meghan: #2c3c46;
 }
 
 * { box-sizing: border-box; }
@@ -22,50 +19,49 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    repeating-linear-gradient(90deg, #cbb894 0 28px, #c7b38c 28px 29px),
-    #cbb894;
-  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
-  line-height: 1.45;
+    repeating-linear-gradient(90deg, #b89868 0 46px, #b08e5e 46px 48px),
+    #b89868;
+  font-family: "Source Serif 4", Georgia, serif;
+  line-height: 1.4;
 }
 
 a { color: inherit; }
 a.plain { text-decoration: underline; text-underline-offset: 2px; }
-button, input, textarea, select { font-family: inherit; }
+button, input, textarea { font-family: inherit; }
 
 .shop-bar {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.55rem 1.1rem;
-  background: var(--oak-dark);
-  color: #f3ead4;
-  border-bottom: 4px solid var(--brass);
+  padding: 0.45rem 1rem;
+  background: linear-gradient(#4a2f1c, var(--oak-dark));
+  color: var(--paper);
+  border-bottom: 5px solid var(--brass);
 }
 .shop-bar .mark {
   font-family: "Newsreader", Georgia, serif;
-  font-weight: 600;
-  letter-spacing: 0.02em;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  font-size: 1.12rem;
 }
 .shop-bar .mark small {
   display: block;
-  font-family: "IBM Plex Sans", sans-serif;
+  font-family: "Inconsolata", ui-monospace, monospace;
   font-weight: 400;
   font-size: 0.72rem;
   opacity: 0.85;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
-.lang {
-  display: flex;
-  gap: 0.25rem;
-}
+.lang { display: flex; gap: 0.2rem; }
 .lang button {
   background: transparent;
-  color: #f3ead4;
-  border: 1px solid #f3ead466;
-  padding: 0.2rem 0.5rem;
+  color: var(--paper);
+  border: 1px solid #f4ead266;
+  padding: 0.15rem 0.45rem;
   cursor: pointer;
+  font-family: "Inconsolata", ui-monospace, monospace;
 }
 .lang button[aria-pressed="true"] {
   background: var(--brass);
@@ -75,139 +71,136 @@ button, input, textarea, select { font-family: inherit; }
 
 .office {
   display: grid;
-  grid-template-columns: 1fr 14px 1fr;
-  min-height: calc(100vh - 52px);
-  max-width: 1280px;
-  margin: 0 auto;
-  background: var(--kraft);
-  box-shadow: 0 0 0 1px #0002, 0 18px 40px #0003;
+  grid-template-columns: 1.08fr 18px 0.92fr;
+  max-width: 980px;
+  margin: 1.1rem auto 1.4rem;
+  background: #c9a56a;
+  border: 10px solid var(--oak-dark);
+  box-shadow:
+    inset 0 0 0 2px var(--brass),
+    0 22px 40px #0005;
 }
 
 .aisle {
   background:
     linear-gradient(#0000, #0000),
-    repeating-linear-gradient(180deg, #8a7350 0 18px, #7e6848 18px 19px);
+    repeating-linear-gradient(180deg, #8a6a3e 0 16px, #7a5c34 16px 17px);
   position: relative;
 }
 .aisle::after {
   content: "";
   position: absolute;
-  inset: 0 5px;
-  background: repeating-linear-gradient(
-    180deg,
-    #e8d27a 0 10px,
-    #e8d27a00 10px 22px
-  );
+  inset: 0 6px;
+  background: repeating-linear-gradient(180deg, #ead56a 0 9px, transparent 9px 20px);
 }
 
-.desk {
-  padding: 1.15rem 1.2rem 2rem;
-  position: relative;
-}
+.desk { padding: 0.85rem 0.95rem 1.15rem; position: relative; }
 .desk.matt {
   background:
-    radial-gradient(circle at 18% 0, #fff6 0 40px, transparent 70px),
-    linear-gradient(#efe4c8, #e6d7b4);
+    radial-gradient(circle at 16% 6%, #fff7 0 36px, transparent 70px),
+    repeating-linear-gradient(0deg, #e9d8b4 0 13px, #e4d2ac 13px 14px);
 }
 .desk.meghan {
   background:
-    radial-gradient(circle at 80% 8%, #ffe08a55 0 50px, transparent 90px),
-    linear-gradient(#eadfc8, #ddd0b4);
+    radial-gradient(circle at 84% 8%, #f0c45a44 0 48px, transparent 86px),
+    linear-gradient(#e6d5b2, #dcc9a4);
 }
 
 .desk-plate {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
+  gap: 0.5rem;
   border-bottom: 2px solid var(--oak);
-  padding-bottom: 0.35rem;
-  margin-bottom: 0.85rem;
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  padding-bottom: 0.28rem;
+  margin-bottom: 0.55rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 .desk-plate strong {
   font-family: "Newsreader", Georgia, serif;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   letter-spacing: 0;
   text-transform: none;
 }
 
-h1, h2, h3 { font-family: "Newsreader", Georgia, serif; font-weight: 600; margin: 0 0 0.4rem; }
-h1 { font-size: 1.7rem; line-height: 1.2; }
-h2 { font-size: 1.15rem; }
-p { margin: 0 0 0.7rem; }
+h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 650; margin: 0 0 0.28rem; }
+h1 { font-size: 1.55rem; line-height: 1.12; }
+h2 { font-size: 1.02rem; }
+p { margin: 0 0 0.5rem; }
+.lede, .about { font-size: 0.95rem; }
 
 .tag {
   display: inline-block;
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.08em;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
   background: var(--tape);
-  padding: 0.15rem 0.4rem;
-  transform: rotate(-1.2deg);
-  margin-bottom: 0.5rem;
+  padding: 0.12rem 0.38rem;
+  transform: rotate(-1.4deg);
+  margin-bottom: 0.35rem;
+  box-shadow: 0 1px 0 #0002;
 }
 
 .blotter {
-  background: var(--matt-blotter);
-  color: #f3ead4;
-  padding: 0.85rem 0.9rem;
-  margin: 0.8rem 0;
-  box-shadow: 0 6px 0 #243022;
+  background: var(--matt);
+  color: var(--paper);
+  padding: 0.65rem 0.7rem;
+  margin: 0.5rem 0 0.7rem;
+  box-shadow: 0 5px 0 #243022, 2px 8px 0 #0002;
 }
-.desk.meghan .blotter {
-  background: var(--meghan-blotter);
-  box-shadow: 0 6px 0 #1c2a32;
-}
-.blotter h2 { color: #f3ead4; }
-.blotter p, .blotter li { color: #e7decc; }
+.blotter h2 { color: var(--paper); }
+.blotter p { color: #e7decc; font-size: 0.9rem; margin-bottom: 0.4rem; }
 
 .cork {
   background:
-    radial-gradient(#0001 1px, transparent 1.5px) 0 0 / 12px 12px,
-    #c9a36a;
-  padding: 0.7rem;
-  display: grid;
-  gap: 0.55rem;
-  border: 8px solid #6b4524;
+    radial-gradient(#0001 1px, transparent 1.4px) 0 0 / 11px 11px,
+    #c49a62;
+  padding: 0.55rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  border: 7px solid #5c3a1e;
   box-shadow: inset 0 0 0 1px #0002;
 }
 .ticket {
-  background: #fffdf6;
-  padding: 0.55rem 0.65rem;
+  background: #fffdf4;
+  padding: 0.28rem 0.42rem 0.32rem;
   box-shadow: 0 1px 0 #0002;
   position: relative;
-  font-size: 0.92rem;
+  font-size: 0.78rem;
+  flex: 0 1 auto;
 }
+.ticket.featured { flex: 1 1 46%; }
 .ticket::before {
   content: "";
-  width: 10px;
-  height: 10px;
+  width: 8px; height: 8px;
   background: var(--pin);
   border-radius: 50%;
   position: absolute;
-  top: -5px;
-  left: 10px;
+  top: -4px; left: 8px;
   box-shadow: 0 1px 0 #0004;
 }
-.ticket b { display: block; font-family: "Newsreader", Georgia, serif; }
-.ticket span { font-size: 0.82rem; color: #4a4338; }
+.ticket b { display: block; font-family: "Newsreader", Georgia, serif; font-size: 0.88rem; }
+.ticket span { font-size: 0.75rem; color: #4a4338; }
 
+.notes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-top: 0.65rem; }
 .note {
-  background: #fff7b8;
-  padding: 0.7rem 0.75rem;
-  transform: rotate(-0.6deg);
+  background: #fff6a8;
+  padding: 0.5rem 0.55rem;
+  transform: rotate(-0.8deg);
   box-shadow: 1px 2px 0 #0002;
-  font-size: 0.9rem;
+  font-size: 0.78rem;
 }
-.note.alt { background: #f7e7c6; transform: rotate(0.7deg); }
+.note.alt { background: #f4e2b8; transform: rotate(0.9deg); }
+.note p { margin: 0; }
 .note footer {
-  margin-top: 0.4rem;
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.75rem;
+  margin-top: 0.3rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.72rem;
 }
 
 .plaque {
@@ -215,77 +208,102 @@ p { margin: 0 0 0.7rem; }
   background: #2a241c;
   color: var(--brass);
   text-align: center;
-  padding: 0.7rem;
-  margin: 0.8rem 0;
+  padding: 0.5rem 0.55rem;
+  margin: 0.55rem 0;
   font-family: "Newsreader", Georgia, serif;
 }
-.plaque .num { font-size: 1.55rem; letter-spacing: 0.08em; color: #f3ead4; }
-.plaque small { display: block; font-family: "IBM Plex Sans", sans-serif; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.68rem; }
+.plaque .num { font-size: 1.7rem; letter-spacing: 0.1em; color: var(--paper); line-height: 1; }
+.plaque small {
+  display: block;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-size: 0.64rem;
+}
 
 .hours {
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.88rem;
-  background: #fffdf6;
-  border: 1px dashed #7a4e2a;
-  padding: 0.6rem 0.7rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.82rem;
+  background: #fffdf4;
+  border: 1px dashed var(--oak);
+  padding: 0.4rem 0.5rem;
+  margin-bottom: 0.55rem;
 }
-.hours div { display: flex; justify-content: space-between; gap: 1rem; border-bottom: 1px dotted #c9b48a; padding: 0.12rem 0; }
+.hours div { display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.08rem 0; border-bottom: 1px dotted #c9b48a; }
 .hours div:last-child { border: 0; }
 
-form.job {
-  background: #fffdf6;
-  border: 1px solid #7a4e2a;
-  padding: 0.8rem;
+form.job.pad {
+  background:
+    linear-gradient(90deg, #f3ead2 0 28px, #d24a3a 28px 30px, #fff7c8 30px);
+  background-size: 100% 26px;
+  border: 0;
+  padding: 0.7rem 0.7rem 0.7rem 2.15rem;
   display: grid;
-  gap: 0.45rem;
+  gap: 0.18rem;
+  box-shadow: 2px 4px 0 #0002;
+  transform: rotate(0.4deg);
 }
-form.job label { font-size: 0.78rem; font-family: "IBM Plex Mono", ui-monospace, monospace; text-transform: uppercase; letter-spacing: 0.06em; }
+.pad-head {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 650;
+  margin: 0 0 0.2rem;
+  font-size: 1rem;
+}
+form.job label {
+  font-size: 0.72rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 form.job input, form.job textarea {
   width: 100%;
   border: 0;
-  border-bottom: 1px solid #1b1712;
   background: transparent;
-  padding: 0.35rem 0;
-  font-size: 1rem;
+  border-bottom: 1px solid #241c14;
+  padding: 0.2rem 0 0.12rem;
+  font-size: 0.95rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
 }
-form.job textarea { min-height: 4.2rem; resize: vertical; }
+form.job textarea { min-height: 3.2rem; resize: vertical; }
 form.job button {
-  margin-top: 0.3rem;
+  margin-top: 0.25rem;
   background: var(--oak-dark);
-  color: #f3ead4;
+  color: var(--paper);
   border: 0;
-  padding: 0.65rem 0.8rem;
+  padding: 0.5rem 0.65rem;
   cursor: pointer;
-  font-weight: 600;
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 650;
 }
-form.job .hint { font-size: 0.8rem; color: #4a4338; }
+form.job .hint { font-size: 0.74rem; color: #4a4338; margin: 0.15rem 0 0; }
 
 .contact-list {
-  font-family: "IBM Plex Mono", ui-monospace, monospace;
-  font-size: 0.88rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.82rem;
   list-style: none;
   padding: 0;
-  margin: 0 0 0.8rem;
+  margin: 0 0 0.35rem;
 }
-.contact-list li { padding: 0.18rem 0; border-bottom: 1px dotted #c9b48a; }
-
-.links { font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 0.6rem 1rem; margin: 0.6rem 0 1rem; }
+.contact-list li { padding: 0.1rem 0; }
+.links { font-size: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; margin: 0.35rem 0 0.7rem; }
+.hint { font-size: 0.8rem; color: #4a4338; }
 
 .floor-note {
-  grid-column: 1 / -1;
   background: var(--oak-dark);
-  color: #f3ead4;
-  padding: 0.7rem 1.1rem;
-  font-size: 0.85rem;
+  color: var(--paper);
+  padding: 0.55rem 1rem;
+  font-size: 0.8rem;
   display: flex;
   justify-content: space-between;
   gap: 1rem;
   flex-wrap: wrap;
+  font-family: "Inconsolata", ui-monospace, monospace;
 }
 
 @media (max-width: 860px) {
-  .office { grid-template-columns: 1fr; }
-  .aisle { height: 12px; background: repeating-linear-gradient(90deg, #e8d27a 0 10px, #8a7350 10px 22px); }
+  .office { grid-template-columns: 1fr; margin: 0.5rem; }
+  .aisle { height: 12px; background: repeating-linear-gradient(90deg, #ead56a 0 10px, #8a6a3e 10px 22px); }
+  .notes { grid-template-columns: 1fr; }
 }
 @media print {
   .shop-bar, form.job, .lang { display: none !important; }
