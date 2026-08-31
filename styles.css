@@ -1,73 +1,60 @@
-/* Maverik Electric — mailed two-desk office. The page is the office. */
-@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,650;1,6..72,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
+/* Maverik Electric — the page is the oak-framed two-desk office. Neuton / Lora / IBM Plex Mono. */
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600&family=Lora:ital,wght@0,400;0,600;1,400&family=Neuton:wght@400;700&display=swap");
 
 :root {
   --ink: #241c14;
   --paper: #f4ead2;
-  --oak: #6e4526;
-  --oak-dark: #3d2616;
+  --oak: #5a3820;
+  --oak-dark: #2e1c10;
   --brass: #c4a04a;
   --pin: #8a2a24;
-  --tape: #ead56a;
 }
 
 * { box-sizing: border-box; }
-html { background: #6a4a2c; }
+html, body { margin: 0; }
 body {
-  margin: 0;
-  color: var(--ink);
-  font-family: "Source Serif 4", Georgia, serif;
-  line-height: 1.35;
-  background:
-    radial-gradient(ellipse at 50% 0%, #8a6240 0 28%, transparent 60%),
-    repeating-linear-gradient(90deg, #6e4c2e 0 28px, #644428 28px 30px);
   min-height: 100vh;
+  color: var(--ink);
+  font-family: Lora, Georgia, serif;
+  line-height: 1.28;
+  background:
+    radial-gradient(ellipse at 50% 0, #8a6240 0 24%, transparent 58%),
+    repeating-linear-gradient(90deg, #6e4c2e 0 26px, #644428 26px 28px);
 }
 a { color: inherit; }
-a.plain { text-decoration: underline; text-underline-offset: 2px; }
+a.plain { text-underline-offset: 2px; }
 button, input, textarea { font-family: inherit; }
-
-.mail-table {
-  min-height: 100vh;
-  display: grid;
-  place-items: center;
-  padding: 1.2rem 0.7rem 1.6rem;
-}
+p { margin: 0; }
 
 .office {
-  position: relative;
-  width: min(1080px, 100%);
+  max-width: 7.1in;
+  margin: 0.7rem auto 1.2rem;
   background: #c9a56a;
-  border: 14px solid var(--oak-dark);
-  box-shadow:
-    inset 0 0 0 3px var(--brass),
-    0 18px 0 #2a1810,
-    0 28px 40px #0006;
+  border: 12px solid var(--oak-dark);
+  box-shadow: inset 0 0 0 3px var(--brass), 0 16px 0 #2a1810, 0 26px 36px #0006;
   display: grid;
-  grid-template-columns: 1.12fr 14px 0.88fr;
+  grid-template-columns: 1.12fr 10px 0.88fr;
   grid-template-rows: auto 1fr auto;
   overflow: hidden;
 }
-.oak-frame { display: none; }
 
-.brass-plate {
+.brass {
   grid-column: 1 / 3;
   grid-row: 1;
-  justify-self: start;
-  margin: 0.45rem 0 0 0.7rem;
+  margin: 0.35rem 0 0 0.55rem;
   background: linear-gradient(#d8b45c, var(--brass) 55%, #9a7a32);
   color: var(--oak-dark);
-  padding: 0.28rem 0.7rem 0.32rem;
-  font-family: "Newsreader", Georgia, serif;
-  font-weight: 650;
-  letter-spacing: 0.01em;
+  padding: 0.18rem 0.55rem 0.22rem;
+  font-family: Neuton, Georgia, serif;
+  font-weight: 700;
+  width: max-content;
   box-shadow: 0 2px 0 #5a3a12, inset 0 1px 0 #f3e2a8;
-  z-index: 3;
+  z-index: 2;
 }
-.brass-plate span {
+.brass span {
   display: block;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.68rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.58rem;
   font-weight: 400;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -77,32 +64,26 @@ button, input, textarea { font-family: inherit; }
   grid-column: 3;
   grid-row: 1;
   justify-self: end;
-  align-self: start;
   display: flex;
-  gap: 0.2rem;
-  margin: 0.5rem 0.7rem 0 0;
-  z-index: 3;
+  gap: 0.15rem;
+  margin: 0.4rem 0.5rem 0 0;
+  z-index: 2;
 }
 .lang button {
-  background: transparent;
+  background: #f4ead2cc;
   color: var(--oak-dark);
   border: 1px solid #3d261688;
-  padding: 0.12rem 0.42rem;
+  padding: 0.08rem 0.35rem;
   cursor: pointer;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  background: #f4ead2cc;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.72rem;
 }
 .lang button[aria-pressed="true"] {
   background: var(--brass);
-  color: var(--oak-dark);
   border-color: var(--brass);
 }
 
-.desk {
-  grid-row: 2;
-  min-width: 0;
-  padding: 0.55rem 0.7rem 0.7rem;
-}
+.desk { grid-row: 2; min-width: 0; padding: 0.4rem 0.5rem 0.5rem; }
 .desk.matt {
   grid-column: 1;
   background:
@@ -110,221 +91,197 @@ button, input, textarea { font-family: inherit; }
     radial-gradient(circle at 78% 42%, #b8894f 0 1.2px, transparent 2px),
     radial-gradient(circle at 40% 70%, #d0ab72 0 1px, transparent 2px),
     repeating-linear-gradient(18deg, #c49a62 0 3px, #b88950 3px 6px);
-  box-shadow: inset -12px 0 16px #0002;
+  box-shadow: inset -10px 0 14px #0002;
 }
 .desk.meghan {
   grid-column: 3;
   background:
-    radial-gradient(ellipse at 50% 0%, #2a6a58 0 40%, transparent 70%),
+    radial-gradient(ellipse at 50% 0, #2a6a58 0 40%, transparent 70%),
     linear-gradient(#1f4a40, #173832);
   color: #e7efe8;
-  box-shadow: inset 18px 0 22px #0004;
+  box-shadow: inset 14px 0 18px #0004;
 }
 .aisle {
   grid-column: 2;
   grid-row: 2;
-  background:
-    repeating-linear-gradient(90deg, #7a3a28 0 4px, #5c2c1e 4px 7px);
-  box-shadow: inset 0 0 6px #0008;
+  background: repeating-linear-gradient(90deg, #7a3a28 0 4px, #5c2c1e 4px 7px);
 }
 
 .nameplate {
   background: linear-gradient(#e8d7a4, #c4a04a);
   color: var(--oak-dark);
   display: inline-block;
-  padding: 0.18rem 0.55rem 0.22rem;
-  margin-bottom: 0.45rem;
+  padding: 0.1rem 0.42rem 0.14rem;
+  margin-bottom: 0.32rem;
   box-shadow: 0 2px 0 #3d2616;
-  font-family: "Newsreader", Georgia, serif;
+  font-family: Neuton, Georgia, serif;
 }
-.nameplate b { display: block; font-size: 0.98rem; }
-.nameplate small { font-family: "Inconsolata", ui-monospace, monospace; letter-spacing: 0.04em; font-size: 0.68rem; }
+.nameplate b { display: block; font-size: 0.92rem; }
+.nameplate small { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.58rem; letter-spacing: 0.03em; }
 
-.pin-card, .ticket, .polaroid {
+.pin {
   background: #f7f0dc;
   color: var(--ink);
   position: relative;
   transform: rotate(var(--r, 0deg));
-  box-shadow: 1px 3px 0 #0003, 0 0 0 1px #0001;
+  box-shadow: 1px 2px 0 #0003;
 }
-.pin-card::before, .ticket::before, .polaroid::before {
+.pin::before {
   content: "";
   position: absolute;
-  top: -7px; left: 50%;
-  width: 11px; height: 11px;
-  margin-left: -5px;
+  top: -6px; left: 50%;
+  width: 9px; height: 9px;
+  margin-left: -4px;
   background: radial-gradient(circle at 35% 35%, #d86, var(--pin));
   border-radius: 50%;
   box-shadow: 0 1px 0 #0006;
-  z-index: 2;
 }
 
-.hero-card {
-  padding: 0.55rem 0.65rem 0.6rem;
-  margin: 0 0 0.45rem;
-}
-.hero-card .tag {
-  font-family: "Inconsolata", ui-monospace, monospace;
+.hero { padding: 0.38rem 0.48rem 0.42rem; margin: 0 0 0.32rem; }
+.hero .tag {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
   text-transform: uppercase;
-  letter-spacing: 0.14em;
-  font-size: 0.68rem;
-  margin: 0 0 0.2rem;
+  letter-spacing: 0.12em;
+  font-size: 0.58rem;
+  margin: 0 0 0.1rem;
   color: #6a4020;
 }
-.hero-card h1 {
-  font-family: "Newsreader", Georgia, serif;
-  font-weight: 650;
-  font-size: clamp(1.35rem, 3.2vw, 2.05rem);
-  margin: 0 0 0.25rem;
-  line-height: 1.05;
+.hero h1 {
+  font-family: Neuton, Georgia, serif;
+  font-weight: 700;
+  font-size: 1.45rem;
+  margin: 0 0 0.12rem;
+  line-height: 1;
 }
-.hero-card p { margin: 0; font-size: 0.92rem; }
+.hero p { font-size: 0.78rem; }
 
 .sticky {
   background: #efe07a;
-  padding: 0.4rem 0.55rem 0.5rem;
-  margin: 0 0.6rem 0.5rem 0.15rem;
-  font-size: 0.82rem;
+  padding: 0.28rem 0.4rem 0.32rem;
+  margin: 0 0.5rem 0.35rem 0.1rem;
+  font-size: 0.72rem;
 }
-.sticky h2 { font-family: "Newsreader", Georgia, serif; font-size: 1rem; margin: 0 0 0.2rem; }
-.sticky p { margin: 0 0 0.25rem; }
+.sticky b { display: block; font-family: Neuton, Georgia, serif; font-size: 0.88rem; }
 
-.cork-board {
+.pins {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 0.35rem 0.4rem;
-  margin: 0.2rem 0 0.5rem;
+  gap: 0.28rem 0.3rem;
+  margin: 0 0 0.35rem;
 }
-.ticket {
-  padding: 0.38rem 0.42rem 0.42rem;
+.pins .pin {
+  padding: 0.28rem 0.32rem;
+  font-family: Neuton, Georgia, serif;
   font-size: 0.78rem;
-}
-.ticket b {
   display: block;
-  font-family: "Newsreader", Georgia, serif;
-  font-size: 0.86rem;
 }
-.ticket span { display: block; margin-top: 0.12rem; color: #4a3824; }
-.ticket.also { grid-column: 1 / -1; background: #efe4c4; }
-.ticket.also span { font-size: 0.74rem; }
+.pins .also { grid-column: 1 / -1; background: #efe4c4; font-family: Lora, Georgia, serif; font-size: 0.64rem; line-height: 1.25; }
 
-.polaroids {
-  display: grid;
-  grid-template-columns: 1fr 1fr 0.85fr;
-  gap: 0.35rem;
-  align-items: start;
-}
-.polaroid {
-  padding: 0.35rem 0.4rem 0.3rem;
-  background: #faf6ea;
-  font-size: 0.68rem;
-  line-height: 1.28;
-}
+.polaroids { display: grid; grid-template-columns: 1fr 1fr 0.85fr; gap: 0.28rem; }
+.polaroid { padding: 0.28rem 0.32rem 0.22rem; background: #faf6ea; font-size: 0.6rem; line-height: 1.25; }
 .polaroid p {
-  margin: 0;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.polaroid.small p { -webkit-line-clamp: 5; }
 .polaroid figcaption {
-  margin-top: 0.25rem;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-weight: 700;
+  margin-top: 0.16rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-size: 0.66rem;
+  font-size: 0.56rem;
 }
 
-.desk.meghan .tag {
-  font-family: "Inconsolata", ui-monospace, monospace;
-  letter-spacing: 0.16em;
+.blotter-tag {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-size: 0.68rem;
-  margin: 0 0 0.35rem;
-  color: #c4a04a;
+  font-size: 0.58rem;
+  margin: 0 0 0.22rem;
+  color: var(--brass);
 }
-.about { margin: 0 0 0.4rem; font-size: 0.86rem; color: #dce8e0; }
+.about { margin: 0 0 0.28rem; font-size: 0.72rem; color: #dce8e0; }
 
 .plaque {
   text-align: center;
   border: 2px solid var(--brass);
-  padding: 0.3rem 0.4rem 0.4rem;
-  margin: 0.45rem 0;
+  padding: 0.18rem 0.3rem 0.22rem;
+  margin: 0.28rem 0;
   background: #102822;
 }
 .plaque .num {
-  font-family: "Newsreader", Georgia, serif;
-  font-size: 1.7rem;
-  letter-spacing: 0.12em;
+  font-family: Neuton, Georgia, serif;
+  font-size: 1.45rem;
+  letter-spacing: 0.1em;
   color: var(--brass);
   line-height: 1;
 }
-.plaque small { display: block; font-family: "Inconsolata", ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+.plaque small { display: block; font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 0.56rem; letter-spacing: 0.07em; text-transform: uppercase; }
 
 .hours {
   background: #f4ead2;
   color: var(--ink);
-  padding: 0.35rem 0.5rem;
-  margin: 0.4rem 0;
-  font-size: 0.82rem;
-  box-shadow: 2px 3px 0 #0a1814;
+  padding: 0.22rem 0.38rem;
+  margin: 0.28rem 0;
+  font-size: 0.68rem;
+  box-shadow: 2px 2px 0 #0a1814;
 }
-.hours div { display: flex; justify-content: space-between; gap: 0.6rem; }
+.hours div { display: flex; justify-content: space-between; gap: 0.5rem; }
 
-.contact-list { list-style: none; padding: 0; margin: 0.3rem 0; font-size: 0.86rem; }
-.contact-list li { margin: 0.12rem 0; }
-.hint { font-size: 0.78rem; opacity: 0.9; margin: 0.2rem 0 0.4rem; }
-.links { display: flex; flex-wrap: wrap; gap: 0.35rem 0.7rem; font-size: 0.78rem; margin: 0.2rem 0 0.55rem; }
+.where { font-size: 0.72rem; margin: 0.15rem 0; }
+.hint { font-size: 0.64rem; opacity: 0.9; margin: 0.12rem 0 0.22rem; }
+.stamps { display: flex; flex-wrap: wrap; gap: 0.2rem 0.5rem; font-size: 0.64rem; margin: 0 0 0.35rem; }
 
 .pad {
-  background:
-    repeating-linear-gradient(#fff7b8 0 27px, #d4c070 27px 28px);
+  background: repeating-linear-gradient(#fff7b8 0 22px, #d4c070 22px 23px);
   color: var(--ink);
-  padding: 0.45rem 0.55rem 0.55rem 0.9rem;
+  padding: 0.32rem 0.4rem 0.4rem 0.7rem;
   border-left: 4px solid #c45a4a;
-  box-shadow: 3px 5px 0 #0a1814;
-  font-family: "Inconsolata", ui-monospace, monospace;
+  box-shadow: 3px 4px 0 #0a1814;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
 }
-.pad-head { margin: 0 0 0.3rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; }
-.pad label { display: block; font-size: 0.72rem; margin: 0.2rem 0 0.05rem; }
+.pad-head { margin: 0 0 0.18rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.68rem; }
+.pad label { display: block; font-size: 0.62rem; margin: 0.12rem 0 0; }
 .pad input, .pad textarea {
   width: 100%;
   background: transparent;
   border: 0;
   border-bottom: 1px solid #6a5a20;
-  padding: 0.15rem 0;
+  padding: 0.08rem 0;
   color: var(--ink);
   font-family: inherit;
+  font-size: 0.78rem;
 }
-.pad textarea { min-height: 2.4rem; resize: vertical; }
+.pad textarea { min-height: 1.7rem; resize: vertical; }
 .pad button {
-  margin-top: 0.4rem;
+  margin-top: 0.28rem;
   width: 100%;
   background: var(--oak-dark);
   color: var(--paper);
   border: 0;
-  padding: 0.45rem 0.5rem;
+  padding: 0.35rem 0.4rem;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.04em;
   text-transform: uppercase;
+  font-size: 0.72rem;
 }
 
-.floor-note {
+.sill {
   grid-column: 1 / -1;
   grid-row: 3;
   display: flex;
   justify-content: space-between;
-  gap: 0.6rem;
+  gap: 0.5rem;
   flex-wrap: wrap;
   background: linear-gradient(#4a2f1c, var(--oak-dark));
   color: var(--paper);
-  padding: 0.32rem 0.7rem;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
+  padding: 0.22rem 0.55rem;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.03em;
 }
 
 .shop-bar {
@@ -332,38 +289,27 @@ button, input, textarea { font-family: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-  padding: 0.45rem 1rem;
+  padding: 0.4rem 0.9rem;
   background: linear-gradient(#4a2f1c, var(--oak-dark));
   color: var(--paper);
   border-bottom: 5px solid var(--brass);
 }
-.shop-bar .mark {
-  font-family: "Newsreader", Georgia, serif;
-  font-weight: 650;
-  font-size: 1.12rem;
-}
+.shop-bar .mark { font-family: Neuton, Georgia, serif; font-weight: 700; font-size: 1.1rem; }
 .shop-bar .mark small {
   display: block;
-  font-family: "Inconsolata", ui-monospace, monospace;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-weight: 400;
-  font-size: 0.72rem;
-  letter-spacing: 0.16em;
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   opacity: 0.85;
 }
-.tag { margin: 0; }
 
 @media (max-width: 860px) {
-  .office {
-    grid-template-columns: 1fr;
-    grid-template-rows: auto auto auto auto auto;
-  }
-  .brass-plate { grid-column: 1; }
-  .lang { grid-column: 1; margin: 0.4rem 0.7rem; }
-  .desk.matt, .desk.meghan, .aisle, .floor-note { grid-column: 1; }
-  .aisle { height: 10px; grid-row: auto; background: repeating-linear-gradient(90deg, #7a3a28 0 4px, #5c2c1e 4px 7px); }
-  .desk.matt, .desk.meghan { grid-row: auto; }
-  .cork-board { grid-template-columns: 1fr 1fr; }
+  .office { grid-template-columns: 1fr; }
+  .brass, .lang, .desk.matt, .desk.meghan, .aisle, .sill { grid-column: 1; }
+  .aisle { height: 8px; }
+  .pins { grid-template-columns: 1fr 1fr; }
   .polaroids { grid-template-columns: 1fr; }
   .polaroid p { -webkit-line-clamp: unset; }
 }
