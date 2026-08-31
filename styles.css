@@ -1,4 +1,4 @@
-/* Maverik Electric — mailed two-desk office. Cork vs blotter. Not a form kit. */
+/* Maverik Electric — mailed two-desk office. The page is the office. */
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600;700&family=Newsreader:ital,opsz,wght@0,6..72,500;0,6..72,650;1,6..72,400&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap");
 
 :root {
@@ -9,25 +9,323 @@
   --brass: #c4a04a;
   --pin: #8a2a24;
   --tape: #ead56a;
-  --matt: #3a4634;
-  --meghan: #2c3c46;
 }
 
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; }
+html { background: #6a4a2c; }
 body {
   margin: 0;
   color: var(--ink);
-  background:
-    repeating-linear-gradient(90deg, #b89868 0 46px, #b08e5e 46px 48px),
-    #b89868;
   font-family: "Source Serif 4", Georgia, serif;
-  line-height: 1.4;
+  line-height: 1.35;
+  background:
+    radial-gradient(ellipse at 50% 0%, #8a6240 0 28%, transparent 60%),
+    repeating-linear-gradient(90deg, #6e4c2e 0 28px, #644428 28px 30px);
+  min-height: 100vh;
 }
-
 a { color: inherit; }
 a.plain { text-decoration: underline; text-underline-offset: 2px; }
 button, input, textarea { font-family: inherit; }
+
+.mail-table {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1.2rem 0.7rem 1.6rem;
+}
+
+.office {
+  position: relative;
+  width: min(1080px, 100%);
+  background: #c9a56a;
+  border: 14px solid var(--oak-dark);
+  box-shadow:
+    inset 0 0 0 3px var(--brass),
+    0 18px 0 #2a1810,
+    0 28px 40px #0006;
+  display: grid;
+  grid-template-columns: 1.12fr 14px 0.88fr;
+  grid-template-rows: auto 1fr auto;
+  overflow: hidden;
+}
+.oak-frame { display: none; }
+
+.brass-plate {
+  grid-column: 1 / 3;
+  grid-row: 1;
+  justify-self: start;
+  margin: 0.45rem 0 0 0.7rem;
+  background: linear-gradient(#d8b45c, var(--brass) 55%, #9a7a32);
+  color: var(--oak-dark);
+  padding: 0.28rem 0.7rem 0.32rem;
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 650;
+  letter-spacing: 0.01em;
+  box-shadow: 0 2px 0 #5a3a12, inset 0 1px 0 #f3e2a8;
+  z-index: 3;
+}
+.brass-plate span {
+  display: block;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.68rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.lang {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+  align-self: start;
+  display: flex;
+  gap: 0.2rem;
+  margin: 0.5rem 0.7rem 0 0;
+  z-index: 3;
+}
+.lang button {
+  background: transparent;
+  color: var(--oak-dark);
+  border: 1px solid #3d261688;
+  padding: 0.12rem 0.42rem;
+  cursor: pointer;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  background: #f4ead2cc;
+}
+.lang button[aria-pressed="true"] {
+  background: var(--brass);
+  color: var(--oak-dark);
+  border-color: var(--brass);
+}
+
+.desk {
+  grid-row: 2;
+  min-width: 0;
+  padding: 0.55rem 0.7rem 0.7rem;
+}
+.desk.matt {
+  grid-column: 1;
+  background:
+    radial-gradient(circle at 12% 18%, #c9a06a 0 1px, transparent 2px),
+    radial-gradient(circle at 78% 42%, #b8894f 0 1.2px, transparent 2px),
+    radial-gradient(circle at 40% 70%, #d0ab72 0 1px, transparent 2px),
+    repeating-linear-gradient(18deg, #c49a62 0 3px, #b88950 3px 6px);
+  box-shadow: inset -12px 0 16px #0002;
+}
+.desk.meghan {
+  grid-column: 3;
+  background:
+    radial-gradient(ellipse at 50% 0%, #2a6a58 0 40%, transparent 70%),
+    linear-gradient(#1f4a40, #173832);
+  color: #e7efe8;
+  box-shadow: inset 18px 0 22px #0004;
+}
+.aisle {
+  grid-column: 2;
+  grid-row: 2;
+  background:
+    repeating-linear-gradient(90deg, #7a3a28 0 4px, #5c2c1e 4px 7px);
+  box-shadow: inset 0 0 6px #0008;
+}
+
+.nameplate {
+  background: linear-gradient(#e8d7a4, #c4a04a);
+  color: var(--oak-dark);
+  display: inline-block;
+  padding: 0.18rem 0.55rem 0.22rem;
+  margin-bottom: 0.45rem;
+  box-shadow: 0 2px 0 #3d2616;
+  font-family: "Newsreader", Georgia, serif;
+}
+.nameplate b { display: block; font-size: 0.98rem; }
+.nameplate small { font-family: "Inconsolata", ui-monospace, monospace; letter-spacing: 0.04em; font-size: 0.68rem; }
+
+.pin-card, .ticket, .polaroid {
+  background: #f7f0dc;
+  color: var(--ink);
+  position: relative;
+  transform: rotate(var(--r, 0deg));
+  box-shadow: 1px 3px 0 #0003, 0 0 0 1px #0001;
+}
+.pin-card::before, .ticket::before, .polaroid::before {
+  content: "";
+  position: absolute;
+  top: -7px; left: 50%;
+  width: 11px; height: 11px;
+  margin-left: -5px;
+  background: radial-gradient(circle at 35% 35%, #d86, var(--pin));
+  border-radius: 50%;
+  box-shadow: 0 1px 0 #0006;
+  z-index: 2;
+}
+
+.hero-card {
+  padding: 0.55rem 0.65rem 0.6rem;
+  margin: 0 0 0.45rem;
+}
+.hero-card .tag {
+  font-family: "Inconsolata", ui-monospace, monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.68rem;
+  margin: 0 0 0.2rem;
+  color: #6a4020;
+}
+.hero-card h1 {
+  font-family: "Newsreader", Georgia, serif;
+  font-weight: 650;
+  font-size: clamp(1.35rem, 3.2vw, 2.05rem);
+  margin: 0 0 0.25rem;
+  line-height: 1.05;
+}
+.hero-card p { margin: 0; font-size: 0.92rem; }
+
+.sticky {
+  background: #efe07a;
+  padding: 0.4rem 0.55rem 0.5rem;
+  margin: 0 0.6rem 0.5rem 0.15rem;
+  font-size: 0.82rem;
+}
+.sticky h2 { font-family: "Newsreader", Georgia, serif; font-size: 1rem; margin: 0 0 0.2rem; }
+.sticky p { margin: 0 0 0.25rem; }
+
+.cork-board {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.35rem 0.4rem;
+  margin: 0.2rem 0 0.5rem;
+}
+.ticket {
+  padding: 0.38rem 0.42rem 0.42rem;
+  font-size: 0.78rem;
+}
+.ticket b {
+  display: block;
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 0.86rem;
+}
+.ticket span { display: block; margin-top: 0.12rem; color: #4a3824; }
+.ticket.also { grid-column: 1 / -1; background: #efe4c4; }
+.ticket.also span { font-size: 0.74rem; }
+
+.polaroids {
+  display: grid;
+  grid-template-columns: 1fr 1fr 0.85fr;
+  gap: 0.35rem;
+  align-items: start;
+}
+.polaroid {
+  padding: 0.35rem 0.4rem 0.3rem;
+  background: #faf6ea;
+  font-size: 0.68rem;
+  line-height: 1.28;
+}
+.polaroid p {
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 6;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.polaroid.small p { -webkit-line-clamp: 5; }
+.polaroid figcaption {
+  margin-top: 0.25rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.66rem;
+}
+
+.desk.meghan .tag {
+  font-family: "Inconsolata", ui-monospace, monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  margin: 0 0 0.35rem;
+  color: #c4a04a;
+}
+.about { margin: 0 0 0.4rem; font-size: 0.86rem; color: #dce8e0; }
+
+.plaque {
+  text-align: center;
+  border: 2px solid var(--brass);
+  padding: 0.3rem 0.4rem 0.4rem;
+  margin: 0.45rem 0;
+  background: #102822;
+}
+.plaque .num {
+  font-family: "Newsreader", Georgia, serif;
+  font-size: 1.7rem;
+  letter-spacing: 0.12em;
+  color: var(--brass);
+  line-height: 1;
+}
+.plaque small { display: block; font-family: "Inconsolata", ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; }
+
+.hours {
+  background: #f4ead2;
+  color: var(--ink);
+  padding: 0.35rem 0.5rem;
+  margin: 0.4rem 0;
+  font-size: 0.82rem;
+  box-shadow: 2px 3px 0 #0a1814;
+}
+.hours div { display: flex; justify-content: space-between; gap: 0.6rem; }
+
+.contact-list { list-style: none; padding: 0; margin: 0.3rem 0; font-size: 0.86rem; }
+.contact-list li { margin: 0.12rem 0; }
+.hint { font-size: 0.78rem; opacity: 0.9; margin: 0.2rem 0 0.4rem; }
+.links { display: flex; flex-wrap: wrap; gap: 0.35rem 0.7rem; font-size: 0.78rem; margin: 0.2rem 0 0.55rem; }
+
+.pad {
+  background:
+    repeating-linear-gradient(#fff7b8 0 27px, #d4c070 27px 28px);
+  color: var(--ink);
+  padding: 0.45rem 0.55rem 0.55rem 0.9rem;
+  border-left: 4px solid #c45a4a;
+  box-shadow: 3px 5px 0 #0a1814;
+  font-family: "Inconsolata", ui-monospace, monospace;
+}
+.pad-head { margin: 0 0 0.3rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; font-size: 0.78rem; }
+.pad label { display: block; font-size: 0.72rem; margin: 0.2rem 0 0.05rem; }
+.pad input, .pad textarea {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid #6a5a20;
+  padding: 0.15rem 0;
+  color: var(--ink);
+  font-family: inherit;
+}
+.pad textarea { min-height: 2.4rem; resize: vertical; }
+.pad button {
+  margin-top: 0.4rem;
+  width: 100%;
+  background: var(--oak-dark);
+  color: var(--paper);
+  border: 0;
+  padding: 0.45rem 0.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.floor-note {
+  grid-column: 1 / -1;
+  grid-row: 3;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  background: linear-gradient(#4a2f1c, var(--oak-dark));
+  color: var(--paper);
+  padding: 0.32rem 0.7rem;
+  font-family: "Inconsolata", ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
 
 .shop-bar {
   display: flex;
@@ -42,7 +340,6 @@ button, input, textarea { font-family: inherit; }
 .shop-bar .mark {
   font-family: "Newsreader", Georgia, serif;
   font-weight: 650;
-  letter-spacing: 0.01em;
   font-size: 1.12rem;
 }
 .shop-bar .mark small {
@@ -50,263 +347,23 @@ button, input, textarea { font-family: inherit; }
   font-family: "Inconsolata", ui-monospace, monospace;
   font-weight: 400;
   font-size: 0.72rem;
-  opacity: 0.85;
   letter-spacing: 0.16em;
   text-transform: uppercase;
+  opacity: 0.85;
 }
-.lang { display: flex; gap: 0.2rem; }
-.lang button {
-  background: transparent;
-  color: var(--paper);
-  border: 1px solid #f4ead266;
-  padding: 0.15rem 0.45rem;
-  cursor: pointer;
-  font-family: "Inconsolata", ui-monospace, monospace;
-}
-.lang button[aria-pressed="true"] {
-  background: var(--brass);
-  color: var(--oak-dark);
-  border-color: var(--brass);
-}
-
-.office {
-  display: grid;
-  grid-template-columns: 1.08fr 18px 0.92fr;
-  max-width: 980px;
-  margin: 1.1rem auto 1.4rem;
-  background: #c9a56a;
-  border: 10px solid var(--oak-dark);
-  box-shadow:
-    inset 0 0 0 2px var(--brass),
-    0 22px 40px #0005;
-}
-
-.aisle {
-  background:
-    linear-gradient(#0000, #0000),
-    repeating-linear-gradient(180deg, #8a6a3e 0 16px, #7a5c34 16px 17px);
-  position: relative;
-}
-.aisle::after {
-  content: "";
-  position: absolute;
-  inset: 0 6px;
-  background: repeating-linear-gradient(180deg, #ead56a 0 9px, transparent 9px 20px);
-}
-
-.desk { padding: 0.85rem 0.95rem 1.15rem; position: relative; }
-.desk.matt {
-  background:
-    radial-gradient(circle at 16% 6%, #fff7 0 36px, transparent 70px),
-    repeating-linear-gradient(0deg, #e9d8b4 0 13px, #e4d2ac 13px 14px);
-}
-.desk.meghan {
-  background:
-    radial-gradient(circle at 84% 8%, #f0c45a44 0 48px, transparent 86px),
-    linear-gradient(#e6d5b2, #dcc9a4);
-}
-
-.desk-plate {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 0.5rem;
-  border-bottom: 2px solid var(--oak);
-  padding-bottom: 0.28rem;
-  margin-bottom: 0.55rem;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-.desk-plate strong {
-  font-family: "Newsreader", Georgia, serif;
-  font-size: 1.05rem;
-  letter-spacing: 0;
-  text-transform: none;
-}
-
-h1, h2 { font-family: "Newsreader", Georgia, serif; font-weight: 650; margin: 0 0 0.28rem; }
-h1 { font-size: 1.55rem; line-height: 1.12; }
-h2 { font-size: 1.02rem; }
-p { margin: 0 0 0.5rem; }
-.lede, .about { font-size: 0.95rem; }
-
-.tag {
-  display: inline-block;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.7rem;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--tape);
-  padding: 0.12rem 0.38rem;
-  transform: rotate(-1.4deg);
-  margin-bottom: 0.35rem;
-  box-shadow: 0 1px 0 #0002;
-}
-
-.blotter {
-  background: var(--matt);
-  color: var(--paper);
-  padding: 0.65rem 0.7rem;
-  margin: 0.5rem 0 0.7rem;
-  box-shadow: 0 5px 0 #243022, 2px 8px 0 #0002;
-}
-.blotter h2 { color: var(--paper); }
-.blotter p { color: #e7decc; font-size: 0.9rem; margin-bottom: 0.4rem; }
-
-.cork {
-  background:
-    radial-gradient(#0001 1px, transparent 1.4px) 0 0 / 11px 11px,
-    #c49a62;
-  padding: 0.55rem;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  border: 7px solid #5c3a1e;
-  box-shadow: inset 0 0 0 1px #0002;
-}
-.ticket {
-  background: #fffdf4;
-  padding: 0.28rem 0.42rem 0.32rem;
-  box-shadow: 0 1px 0 #0002;
-  position: relative;
-  font-size: 0.78rem;
-  flex: 0 1 auto;
-}
-.ticket.featured { flex: 1 1 46%; }
-.ticket::before {
-  content: "";
-  width: 8px; height: 8px;
-  background: var(--pin);
-  border-radius: 50%;
-  position: absolute;
-  top: -4px; left: 8px;
-  box-shadow: 0 1px 0 #0004;
-}
-.ticket b { display: block; font-family: "Newsreader", Georgia, serif; font-size: 0.88rem; }
-.ticket span { font-size: 0.75rem; color: #4a4338; }
-
-.notes { display: grid; grid-template-columns: 1fr 1fr; gap: 0.45rem; margin-top: 0.65rem; }
-.note {
-  background: #fff6a8;
-  padding: 0.5rem 0.55rem;
-  transform: rotate(-0.8deg);
-  box-shadow: 1px 2px 0 #0002;
-  font-size: 0.78rem;
-}
-.note.alt { background: #f4e2b8; transform: rotate(0.9deg); }
-.note p { margin: 0; }
-.note footer {
-  margin-top: 0.3rem;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.72rem;
-}
-
-.plaque {
-  border: 3px double var(--brass);
-  background: #2a241c;
-  color: var(--brass);
-  text-align: center;
-  padding: 0.5rem 0.55rem;
-  margin: 0.55rem 0;
-  font-family: "Newsreader", Georgia, serif;
-}
-.plaque .num { font-size: 1.7rem; letter-spacing: 0.1em; color: var(--paper); line-height: 1; }
-.plaque small {
-  display: block;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-size: 0.64rem;
-}
-
-.hours {
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.82rem;
-  background: #fffdf4;
-  border: 1px dashed var(--oak);
-  padding: 0.4rem 0.5rem;
-  margin-bottom: 0.55rem;
-}
-.hours div { display: flex; justify-content: space-between; gap: 0.8rem; padding: 0.08rem 0; border-bottom: 1px dotted #c9b48a; }
-.hours div:last-child { border: 0; }
-
-form.job.pad {
-  background:
-    linear-gradient(90deg, #f3ead2 0 28px, #d24a3a 28px 30px, #fff7c8 30px);
-  background-size: 100% 26px;
-  border: 0;
-  padding: 0.7rem 0.7rem 0.7rem 2.15rem;
-  display: grid;
-  gap: 0.18rem;
-  box-shadow: 2px 4px 0 #0002;
-  transform: rotate(0.4deg);
-}
-.pad-head {
-  font-family: "Newsreader", Georgia, serif;
-  font-weight: 650;
-  margin: 0 0 0.2rem;
-  font-size: 1rem;
-}
-form.job label {
-  font-size: 0.72rem;
-  font-family: "Inconsolata", ui-monospace, monospace;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-form.job input, form.job textarea {
-  width: 100%;
-  border: 0;
-  background: transparent;
-  border-bottom: 1px solid #241c14;
-  padding: 0.2rem 0 0.12rem;
-  font-size: 0.95rem;
-  font-family: "Inconsolata", ui-monospace, monospace;
-}
-form.job textarea { min-height: 3.2rem; resize: vertical; }
-form.job button {
-  margin-top: 0.25rem;
-  background: var(--oak-dark);
-  color: var(--paper);
-  border: 0;
-  padding: 0.5rem 0.65rem;
-  cursor: pointer;
-  font-family: "Newsreader", Georgia, serif;
-  font-weight: 650;
-}
-form.job .hint { font-size: 0.74rem; color: #4a4338; margin: 0.15rem 0 0; }
-
-.contact-list {
-  font-family: "Inconsolata", ui-monospace, monospace;
-  font-size: 0.82rem;
-  list-style: none;
-  padding: 0;
-  margin: 0 0 0.35rem;
-}
-.contact-list li { padding: 0.1rem 0; }
-.links { font-size: 0.8rem; display: flex; flex-wrap: wrap; gap: 0.35rem 0.85rem; margin: 0.35rem 0 0.7rem; }
-.hint { font-size: 0.8rem; color: #4a4338; }
-
-.floor-note {
-  background: var(--oak-dark);
-  color: var(--paper);
-  padding: 0.55rem 1rem;
-  font-size: 0.8rem;
-  display: flex;
-  justify-content: space-between;
-  gap: 1rem;
-  flex-wrap: wrap;
-  font-family: "Inconsolata", ui-monospace, monospace;
-}
+.tag { margin: 0; }
 
 @media (max-width: 860px) {
-  .office { grid-template-columns: 1fr; margin: 0.5rem; }
-  .aisle { height: 12px; background: repeating-linear-gradient(90deg, #ead56a 0 10px, #8a6a3e 10px 22px); }
-  .notes { grid-template-columns: 1fr; }
-}
-@media print {
-  .shop-bar, form.job, .lang { display: none !important; }
-  body { background: #fff; }
-  .office { box-shadow: none; }
+  .office {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto auto auto;
+  }
+  .brass-plate { grid-column: 1; }
+  .lang { grid-column: 1; margin: 0.4rem 0.7rem; }
+  .desk.matt, .desk.meghan, .aisle, .floor-note { grid-column: 1; }
+  .aisle { height: 10px; grid-row: auto; background: repeating-linear-gradient(90deg, #7a3a28 0 4px, #5c2c1e 4px 7px); }
+  .desk.matt, .desk.meghan { grid-row: auto; }
+  .cork-board { grid-template-columns: 1fr 1fr; }
+  .polaroids { grid-template-columns: 1fr; }
+  .polaroid p { -webkit-line-clamp: unset; }
 }
